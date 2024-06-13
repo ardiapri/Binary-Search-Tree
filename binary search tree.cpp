@@ -2,52 +2,71 @@
 #include <string>
 using namespace std;
 
-class node {
-    public:
-       string info;
-       node* leftchild;
-       node* rightchild;
+class Node
+{
+public:
+	string info;
+	Node* leftchild;
+	Node* rightchild;
 
-       // constructor rof the node class
-       node(string i, node* l, node* r) {
-        info = 1;
-        leftchild = l;
-        rightchild = r;
-       }
+	Node(string i, Node* l, Node* r)
+	{
+		info = i;
+		leftchild = l;
+		rightchild = r;
+	}
 };
 
-class binarytree {
-    public:
-       node* ROOT;
+class BinaryTree
+{
+public:
+	Node* ROOT;
 
-       binarytree() {
-        ROOT = nullptr; //initializing ROOT to null
-       }
+	BinaryTree()
+	{
+		ROOT = nullptr;
+	}
 
-       void insert (string element ) { // insert a node in the binary search tree 
-         node* newnode = new node(element, nullptr, nullptr); // allocate memory for the new node
-         newnode->info = element; // assign value to the data field of the new data
-         newnode->leftchild = nullptr; // make the left child of the new node point to NULL
-         newnode->rightchild = nullptr; // make the right child of the new data point to NULL
+	void insert(string element)
+	{
+		Node* newNode = new Node(element, nullptr, nullptr);
+		newNode->info = element;
+		newNode->leftchild = nullptr;
+		newNode->rightchild = nullptr;
 
-         node* parent = nullptr;
-         node* currentnode = nullptr;
-         search(element, parent, currentnode); // locate the node which be the parent of the node to be inserted
+		Node* parent = nullptr;
+		Node* currentNode = nullptr;
+		search(element, parent, currentNode);
 
-         if (parent == nullptr)  {// mark the new node as ROOT
-           ROOT = newnode; // mark the new node as ROOT
-           return; //exit
-         }
+		if (parent == nullptr)
+		{
+			ROOT = newNode;
+			return;
+		}
 
-         if (element <parent->info) { // if the values in the data field pf the new node is than that of theparent
-            parent->leftchild = newnode; // make the left child of the parent point to the new node
+		if (element < parent->info)
+		{
+			parent->leftchild = newNode;
+		}
+		else if (element > parent->info)
+		{
+			parent->rightchild = newNode;
+		}
 
-         } 
-         else if (element > parent->info) // if the value in the data field of the new data is grater then
-         {
-            parent->rightchild = newnode; //make the right child of the parent point to the new node
+	}
 
-         }
-    } 
-
+	void search(string element, Node*& parent, Node*& currentNode)
+	{
+		currentNode = ROOT;
+		parent = NULL;
+		while ((currentNode != NULL) && currentNode->info != element)
+		{
+			parent = currentNode;
+			if (element < currentNode->info)
+				currentNode = currentNode->leftchild;
+			else
+				currentNode = currentNode->rightchild; 
+		}
+	}
+	
 };
