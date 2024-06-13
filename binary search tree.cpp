@@ -15,3 +15,15 @@ class node {
         rightchild = r;
        }
 };
+
+class binarytree {
+    public:
+       node* ROOT;
+
+       binarytree() {
+        ROOT = nullptr; //initializing ROOT to null
+       }
+
+       
+
+};
