@@ -147,5 +147,13 @@ int main() {
 				x.preorder(x.ROOT);
 				break;
 			} 
+			case '4': {
+				x.postorder(x.ROOT);
+				break;
+			}
+			case '5': {
+				return 0;
+			}
+
 			
 };
