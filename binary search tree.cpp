@@ -44,7 +44,10 @@ class binarytree {
 
          } 
          else if (element > parent->info) // if the value in the data field of the new data is grater then
+         {
+            parent->rightchild = newnode; //make the right child of the parent point to the new node
 
-       } 
+         }
+    } 
 
 };
