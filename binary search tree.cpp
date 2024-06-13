@@ -30,6 +30,21 @@ class binarytree {
          newnode->leftchild = nullptr; // make the left child of the new node point to NULL
          newnode->rightchild = nullptr; // make the right child of the new data point to NULL
 
-       
+         node* parent = nullptr;
+         node* currentnode = nullptr;
+         search(element, parent, currentnode); // locate the node which be the parent of the node to be inserted
+
+         if (parent == nullptr)  {// mark the new node as ROOT
+           ROOT = newnode; // mark the new node as ROOT
+           return; //exit
+         }
+
+         if (element <parent->info) { // if the values in the data field pf the new node is than that of theparent
+            parent->leftchild = newnode; // make the left child of the parent point to the new node
+
+         } 
+         else if (element > parent->info) // if the value in the data field of the new data is grater then
+
+       } 
 
 };
